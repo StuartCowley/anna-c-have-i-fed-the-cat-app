@@ -6,8 +6,14 @@ const app = express();
 app.use(express.json())
 
 // put routes and controller functions here
-app.get('/cats', (req, res) => {
+app.get('/', (req, res) => {
     res.send('Hello crazy cats and kittens')
 })
+
+app.post('/cats', (req, res) => {
+    res.status(201).json('request created')
+})
+
+
 
 module.exports = app
