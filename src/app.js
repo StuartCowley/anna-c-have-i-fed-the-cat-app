@@ -49,7 +49,7 @@ app.delete('/cats/:catId', (req, res) => {
 app.patch('/feed/:catId', (req, res) => {
     Cat.update({ lastFed: new Date() }, { where: { id: req.params.catId } })
     .then(cat => res.status(200).json(cat))
-    .catch(cat => res.status(400).json('error updating when cat was fed'))
+    .catch(_ => res.status(400).json('error updating when cat was fed'))
 })
 
 module.exports = app
